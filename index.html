@@ -7,8 +7,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=7" />
-  <link rel="stylesheet" href="plan-estrategico.css?v=7" />
+  <link rel="stylesheet" href="styles.css?v=8" />
+  <link rel="stylesheet" href="plan-estrategico.css?v=8" />
 </head>
 <body>
 
@@ -48,13 +48,6 @@
         </button>
 
         <div class="plan-menu" id="plan-menu" role="menu" aria-label="Fases del Plan Estratégico">
-          <button type="button" class="plan-phase-btn" role="menuitem" onclick="openStrategicHub()">
-            <span class="phase-badge">★</span>
-            <span class="phase-btn-info">
-              <strong>Inicio del Plan</strong>
-              <small>Resumen y 3 tarjetas de acceso</small>
-            </span>
-          </button>
           <button type="button" class="plan-phase-btn" role="menuitem" onclick="openStrategicPhase(1, 0)">
             <span class="phase-badge">01</span>
             <span class="phase-btn-info">
@@ -359,18 +352,18 @@
   </section>
   </main>
 
-  <!-- Vista separada: Módulo «Plan estratégico» (Identidad Word #1F4E3D + Visor de Diapositivas) -->
+  <!-- Vista separada: Módulo «Plan estratégico» (Identidad Word #1F4E3D + Visor de Diapositivas a pantalla amplia) -->
   <section class="strategic-view" id="strategic-view" hidden>
     <div class="pe-wrapper">
 
-      <!-- Barra superior de navegación del módulo -->
+      <!-- Barra superior de navegación directa entre las 3 Fases -->
       <div class="pe-topbar">
         <div class="pe-topbar-left">
           <button type="button" class="pe-btn-store" onclick="closeStrategicPlan()">
             ← Volver a la Tienda kayá
           </button>
-          <button type="button" class="pe-btn-home" onclick="openStrategicHub()">
-            Volver al plan estratégico
+          <button type="button" class="pe-btn-index" onclick="toggleSlideSidebar()">
+            ☰ Mostrar / Ocultar Índice
           </button>
         </div>
         <div class="pe-phase-switcher">
@@ -386,83 +379,11 @@
         </div>
       </div>
 
-      <!-- PORTADA DEL MÓDULO (3 Tarjetas de acceso + Datos de conversión 0.3) -->
-      <div class="pe-hub" id="pe-hub-view">
-        <div class="pe-hub-banner">
-          <div class="pe-hub-eyebrow">GUION DE CONTENIDO · MÓDULO ACADÉMICO Y CORPORATIVO</div>
-          <h1 class="pe-hub-title">Módulo «Plan estratégico»</h1>
-          <p class="pe-hub-subtitle">
-            Fase 1 · Fase 2 · Fase 3 — Aceite de cacay colombiano y Cacay Amazon Origin Sérum
-          </p>
-          <div class="pe-hub-meta">
-            <span><strong>Taller:</strong> «Plan Estratégico de Inserción Internacional de Colombia» · Entorno Económico Internacional · <strong>Docente:</strong> Lindy Neth Perea Mosquera</span>
-            <span><strong>Integrantes:</strong> Juan Manuel Hernández, Angie Ochoa y Juan José Gómez · <strong>Universidad Libre, seccional Pereira</strong> · Noviembre de 2026</span>
-          </div>
-        </div>
-
-        <div class="pe-hub-cards">
-          <!-- Tarjeta Fase 1 -->
-          <div class="pe-access-card" onclick="openStrategicPhase(1, 0)">
-            <div>
-              <span class="pe-access-badge">11 diapositivas (1.1 a 1.11)</span>
-              <h3>Fase 1 · Diagnóstico</h3>
-              <p>
-                Por qué Colombia necesita diversificar sus exportaciones, el potencial de la bioeconomía, el perfil bioactivo del aceite de cacay y el análisis de su cadena de valor global.
-              </p>
-            </div>
-            <button type="button" class="pe-access-btn">Abrir presentación Fase 1 →</button>
-          </div>
-
-          <!-- Tarjeta Fase 2 -->
-          <div class="pe-access-card" onclick="openStrategicPhase(2, 0)">
-            <div>
-              <span class="pe-access-badge">11 diapositivas (2.1 a 2.11)</span>
-              <h3>Fase 2 · Estrategia</h3>
-              <p>
-                Marco teórico de comercio internacional, Matriz DOFA y cruces estratégicos, acuerdos comerciales (UE, Reino Unido, EE. UU.), selección de mercados (Alemania y EE. UU.), competencia, regulación y portafolio.
-              </p>
-            </div>
-            <button type="button" class="pe-access-btn">Abrir presentación Fase 2 →</button>
-          </div>
-
-          <!-- Tarjeta Fase 3 (Destacada según guía 0.1) -->
-          <div class="pe-access-card featured" onclick="openStrategicPhase(3, 0)">
-            <div>
-              <span class="pe-access-badge">★ FASE PROTAGONISTA · 18 diapositivas (3.1 a 3.16)</span>
-              <h3>Fase 3 · Valor, costos y riesgos</h3>
-              <p>
-                Escalera de valor (USD 1,30 → USD 14,00), transformación en 5 etapas, historia de marca, cronograma de 12 meses (Gantt + Tabla 16), costo por unidad (USD 6,73; margen 51,9 %), formación del precio (35,90 €) y matriz de riesgos (Tabla 19).
-              </p>
-            </div>
-            <button type="button" class="pe-access-btn">Abrir presentación Fase 3 →</button>
-          </div>
-        </div>
-
-        <!-- Datos de conversión 0.3 -->
-        <div class="pe-conversion-bar">
-          <div class="pe-conversion-title">Tasas oficiales de conversión utilizadas en el Plan Estratégico</div>
-          <div class="pe-conversion-grid">
-            <div class="pe-conv-card">
-              <span class="pe-conv-val">$3.297,07</span>
-              <span class="pe-conv-label">TRM por dólar, 12 de noviembre de 2026 (Dólar Hoy, 2026)</span>
-            </div>
-            <div class="pe-conv-card">
-              <span class="pe-conv-val">USD 1,1267</span>
-              <span class="pe-conv-label">por euro, 4 de noviembre de 2026 (Interactive Crypto, 2026)</span>
-            </div>
-            <div class="pe-conv-card">
-              <span class="pe-conv-val">≈ USD 1,345</span>
-              <span class="pe-conv-label">por libra, 10 de noviembre de 2026 (FXStreet, 2026)</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- VISOR DE DIAPOSITIVAS DENTRO DE CADA FASE -->
-      <div id="pe-deck-view" hidden>
-        <div class="pe-deck-layout with-sidebar" id="pe-deck-layout">
-          <!-- Índice lateral desplegable -->
-          <aside class="pe-sidebar" id="pe-sidebar">
+      <!-- VISOR DE DIAPOSITIVAS DE LA FASE ACTIVA (Espacio ampliado para exposición) -->
+      <div id="pe-deck-view">
+        <div class="pe-deck-layout" id="pe-deck-layout">
+          <!-- Índice lateral desplegable (oculto por defecto para dar máximo espacio a la diapositiva) -->
+          <aside class="pe-sidebar" id="pe-sidebar" hidden>
             <div class="pe-sidebar-title" id="pe-sidebar-title">Índice de diapositivas</div>
             <div class="pe-index-list" id="pe-index-list"></div>
           </aside>
@@ -470,9 +391,6 @@
           <!-- Escenario de la diapositiva -->
           <div class="pe-stage-wrap">
             <div class="pe-controls-bar">
-              <button type="button" class="pe-btn-index" onclick="toggleSlideSidebar()">
-                ☰ Mostrar / Ocultar Índice
-              </button>
               <div class="pe-progress-wrap">
                 <div class="pe-progress-track">
                   <div class="pe-progress-fill" id="pe-progress-fill"></div>
@@ -489,7 +407,7 @@
               </div>
             </div>
 
-            <!-- Lienzo 16:9 donde se inyecta cada diapositiva -->
+            <!-- Lienzo amplio donde se inyecta cada diapositiva -->
             <div class="pe-slide-canvas" id="pe-slide-canvas"></div>
           </div>
         </div>
@@ -557,7 +475,7 @@
     </div>
   </footer>
 
-  <script src="script.js?v=7"></script>
-  <script src="plan-estrategico.js?v=7"></script>
+  <script src="script.js?v=8"></script>
+  <script src="plan-estrategico.js?v=8"></script>
 </body>
 </html>

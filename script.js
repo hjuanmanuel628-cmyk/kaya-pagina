@@ -240,6 +240,34 @@ document.addEventListener("click", (event) => {
   }
 });
 
+// Interacción 3D de giro e inclinación suave al pasar el cursor sobre cada uno de los 3 productos
+document.querySelectorAll(".product-card").forEach((card) => {
+  card.addEventListener("mousemove", (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    // Giro 3D proporcional a la posición del cursor
+    const rotateY = ((x - centerX) / centerX) * 9;
+    const rotateX = ((centerY - y) / centerY) * 7;
+
+    card.style.setProperty("--rx", `${rotateX.toFixed(2)}deg`);
+    card.style.setProperty("--ry", `${rotateY.toFixed(2)}deg`);
+    card.style.setProperty("--glow-x", `${((x / rect.width) * 100).toFixed(1)}%`);
+    card.style.setProperty("--glow-y", `${((y / rect.height) * 100).toFixed(1)}%`);
+  });
+
+  card.addEventListener("mouseleave", () => {
+    card.style.setProperty("--rx", "0deg");
+    card.style.setProperty("--ry", "0deg");
+    card.style.setProperty("--glow-x", "50%");
+    card.style.setProperty("--glow-y", "50%");
+  });
+});
+
+
 
 
 

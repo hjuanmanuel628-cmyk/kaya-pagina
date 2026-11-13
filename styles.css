@@ -911,11 +911,39 @@ body {
   transition-delay: 0.44s;
 }
 
+@keyframes productHoverFloatSpin {
+  0% {
+    transform: scale(1.08) rotate(0deg) translateY(0px);
+  }
+  25% {
+    transform: scale(1.13) rotate(-3.5deg) translateY(-8px);
+  }
+  50% {
+    transform: scale(1.15) rotate(0deg) translateY(-12px);
+  }
+  75% {
+    transform: scale(1.13) rotate(3.5deg) translateY(-6px);
+  }
+  100% {
+    transform: scale(1.08) rotate(0deg) translateY(0px);
+  }
+}
+
+.product-card {
+  --rx: 0deg;
+  --ry: 0deg;
+  --glow-x: 50%;
+  --glow-y: 50%;
+  transform-style: preserve-3d;
+}
+
 .products-section.in-view .product-card:hover {
-  transform: translateY(-8px) scale(1.015);
-  box-shadow: 0 30px 64px rgba(0, 0, 0, 0.72), 0 0 28px rgba(213, 175, 58, 0.22);
-  border-color: #D5AF3A;
+  transform: perspective(1000px) translateY(-14px) rotateX(var(--rx, 4deg)) rotateY(var(--ry, -6deg)) scale(1.03);
+  box-shadow: 0 34px 70px rgba(0, 0, 0, 0.78), 0 0 38px rgba(213, 175, 58, 0.42);
+  border-color: #F0D27A;
+  transition: transform 0.18s ease-out, box-shadow 0.35s ease, border-color 0.35s ease;
   transition-delay: 0s;
+  z-index: 5;
 }
 
 .product-image-box {
@@ -924,6 +952,27 @@ body {
   overflow: hidden;
   background-color: #241b12;
   border-bottom: 1px solid rgba(213, 175, 58, 0.3);
+  perspective: 900px;
+}
+
+/* Halo interactivo que sigue el cursor sobre la imagen del producto */
+.product-image-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle 180px at var(--glow-x, 50%) var(--glow-y, 50%),
+    rgba(240, 210, 122, 0.32) 0%,
+    transparent 75%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.product-card:hover .product-image-box::before {
+  opacity: 1;
 }
 
 /* Destello dorado de creación sobre cada producto */
@@ -989,15 +1038,23 @@ body {
 }
 
 .products-section.in-view .product-card:hover .product-image-box img {
-  transform: scale(1.05);
+  animation: productHoverFloatSpin 3.2s ease-in-out infinite;
+  filter: blur(0px) brightness(1.08) contrast(1.04);
   transition-delay: 0s;
+}
+
+.product-card:hover .product-tag {
+  transform: translateY(-2px) scale(1.06);
+  background: rgba(213, 175, 58, 0.95);
+  color: #16110B;
+  box-shadow: 0 6px 18px rgba(213, 175, 58, 0.45);
 }
 
 .product-tag {
   position: absolute;
   top: 16px;
   left: 16px;
-  z-index: 2;
+  z-index: 3;
   background: rgba(31, 24, 16, 0.88);
   border: 1px solid rgba(213, 175, 58, 0.5);
   color: #F0D27A;
@@ -1008,6 +1065,7 @@ body {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   backdrop-filter: blur(4px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .product-body {

@@ -1508,29 +1508,9 @@ const RISK_DETAILS = {
   }
 };
 
-let currentPhaseId = null;
+let currentPhaseId = 1;
 let currentSlideIdx = 0;
-let isSidebarOpen = true;
-
-function openStrategicHub() {
-  const dropdown = document.getElementById("plan-dropdown");
-  const triggerBtn = document.getElementById("plan-trigger-btn");
-  if (dropdown) dropdown.classList.remove("open");
-  if (triggerBtn) triggerBtn.setAttribute("aria-expanded", "false");
-
-  document.getElementById("store-main-view").setAttribute("hidden", "");
-  document.querySelector(".page-dots")?.setAttribute("hidden", "");
-
-  const strategicView = document.getElementById("strategic-view");
-  strategicView.removeAttribute("hidden");
-
-  document.getElementById("pe-hub-view").removeAttribute("hidden");
-  document.getElementById("pe-deck-view").setAttribute("hidden", "");
-
-  currentPhaseId = null;
-  document.querySelectorAll(".pe-phase-pill").forEach((pill) => pill.classList.remove("active"));
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}
+let isSidebarOpen = false;
 
 function openStrategicPhase(phaseNumber, slideIndex = 0) {
   const dropdown = document.getElementById("plan-dropdown");
@@ -1550,8 +1530,8 @@ function openStrategicPhase(phaseNumber, slideIndex = 0) {
   const strategicView = document.getElementById("strategic-view");
   strategicView.removeAttribute("hidden");
 
-  document.getElementById("pe-hub-view").setAttribute("hidden", "");
-  document.getElementById("pe-deck-view").removeAttribute("hidden");
+  const deckView = document.getElementById("pe-deck-view");
+  if (deckView) deckView.removeAttribute("hidden");
 
   document.querySelectorAll(".pe-phase-pill").forEach((pill) => {
     pill.classList.toggle("active", Number(pill.dataset.phase) === phaseNumber);
@@ -1601,7 +1581,7 @@ function renderCurrentSlide() {
       nextBtn.textContent = `Ir a la Fase ${currentPhaseId + 1} →`;
     } else {
       nextBtn.disabled = false;
-      nextBtn.textContent = "Volver al Plan Estratégico";
+      nextBtn.textContent = "Volver a la Tienda kayá";
     }
   } else {
     nextBtn.disabled = false;
@@ -1616,7 +1596,7 @@ function renderCurrentSlide() {
     currentSlideIdx === total - 1
       ? currentPhaseId < 3
         ? `<button type="button" class="pe-arrow-btn" onclick="openStrategicPhase(${currentPhaseId + 1}, 0)">Ir a la Fase ${currentPhaseId + 1} →</button>`
-        : `<button type="button" class="pe-arrow-btn" onclick="openStrategicHub()">Volver al plan estratégico</button>`
+        : `<button type="button" class="pe-arrow-btn" onclick="closeStrategicPlan()">← Volver a la Tienda kayá</button>`
       : "";
 
   canvas.innerHTML = `
@@ -1663,7 +1643,7 @@ function nextSlide() {
   } else if (currentPhaseId < 3) {
     openStrategicPhase(currentPhaseId + 1, 0);
   } else {
-    openStrategicHub();
+    closeStrategicPlan();
   }
 }
 

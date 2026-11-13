@@ -19,16 +19,16 @@
 
 .strategic-view {
   min-height: 100vh;
-  padding: 96px 0 60px;
+  padding: 88px 0 48px;
   background-color: #EEF3F0;
   color: var(--pe-texto);
   font-family: var(--pe-sans);
 }
 
 .pe-wrapper {
-  max-width: 1320px;
+  max-width: 1460px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 28px;
 }
 
 /* Barra superior del módulo */
@@ -460,17 +460,17 @@
   cursor: not-allowed;
 }
 
-/* Lienzo 16:9 de la diapositiva */
+/* Lienzo 16:9 ampliado de la diapositiva para exposición */
 .pe-slide-canvas {
   background: var(--pe-blanco);
   border: 1px solid var(--pe-borde);
-  border-radius: 16px;
-  min-height: 640px;
-  padding: 40px 46px 28px;
+  border-radius: 18px;
+  min-height: 700px;
+  padding: 46px 56px 34px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: 0 16px 42px rgba(31, 78, 61, 0.09);
+  box-shadow: 0 18px 48px rgba(31, 78, 61, 0.11);
   position: relative;
   overflow: hidden;
 }
