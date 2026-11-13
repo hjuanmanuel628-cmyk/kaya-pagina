@@ -1,0 +1,1050 @@
+/* ==========================================================================
+   MÓDULO «PLAN ESTRATÉGICO» — Identidad Visual del Documento Word (Sección 0.2)
+   Verde selva: #1F4E3D | Verde medio: #3E7A62 | Verde salvia: #8FB8A3
+   Verde niebla: #F5F8F6 | Gris borde: #BFBFBF | Blanco: #FFFFFF
+   ========================================================================== */
+
+:root {
+  --pe-selva: #1F4E3D;
+  --pe-medio: #3E7A62;
+  --pe-salvia: #8FB8A3;
+  --pe-niebla: #F5F8F6;
+  --pe-borde: #BFBFBF;
+  --pe-blanco: #FFFFFF;
+  --pe-texto: #1A2420;
+  --pe-gris-texto: #4A5852;
+  --pe-serif: 'Cormorant Garamond', 'Times New Roman', Times, serif;
+  --pe-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.strategic-view {
+  min-height: 100vh;
+  padding: 96px 0 60px;
+  background-color: #EEF3F0;
+  color: var(--pe-texto);
+  font-family: var(--pe-sans);
+}
+
+.pe-wrapper {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Barra superior del módulo */
+.pe-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 24px;
+  background: var(--pe-blanco);
+  padding: 14px 22px;
+  border-radius: 14px;
+  border: 1px solid var(--pe-borde);
+  box-shadow: 0 6px 20px rgba(31, 78, 61, 0.06);
+}
+
+.pe-topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.pe-btn-store {
+  background: var(--pe-selva);
+  color: var(--pe-blanco);
+  border: none;
+  padding: 9px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.pe-btn-store:hover {
+  background: var(--pe-medio);
+}
+
+.pe-btn-home {
+  background: var(--pe-niebla);
+  color: var(--pe-selva);
+  border: 1px solid var(--pe-medio);
+  padding: 9px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pe-btn-home:hover {
+  background: var(--pe-medio);
+  color: var(--pe-blanco);
+}
+
+.pe-phase-switcher {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pe-phase-pill {
+  background: var(--pe-niebla);
+  color: var(--pe-selva);
+  border: 1px solid var(--pe-borde);
+  padding: 9px 18px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pe-phase-pill:hover {
+  border-color: var(--pe-medio);
+  background: #E3EDE8;
+}
+
+.pe-phase-pill.active {
+  background: var(--pe-selva);
+  color: var(--pe-blanco);
+  border-color: var(--pe-selva);
+}
+
+/* PORTADA DEL MÓDULO (3 TARJETAS DE ACCESO) */
+.pe-hub {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.pe-hub-banner {
+  background: var(--pe-selva);
+  color: var(--pe-blanco);
+  border-radius: 18px;
+  padding: 44px 48px;
+  box-shadow: 0 16px 40px rgba(31, 78, 61, 0.18);
+}
+
+.pe-hub-eyebrow {
+  font-size: 0.82rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--pe-salvia);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.pe-hub-title {
+  font-family: var(--pe-serif);
+  font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 10px;
+  color: var(--pe-blanco);
+}
+
+.pe-hub-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.92);
+  margin-bottom: 22px;
+}
+
+.pe-hub-meta {
+  border-top: 1px solid rgba(143, 184, 163, 0.35);
+  padding-top: 16px;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.88);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Tres tarjetas de acceso a las fases */
+.pe-hub-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.22fr;
+  gap: 22px;
+  align-items: stretch;
+}
+
+.pe-access-card {
+  background: var(--pe-blanco);
+  border: 1px solid var(--pe-borde);
+  border-radius: 16px;
+  padding: 30px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+
+.pe-access-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(31, 78, 61, 0.14);
+}
+
+.pe-access-card.featured {
+  background: var(--pe-niebla);
+  border: 3px solid var(--pe-selva);
+  box-shadow: 0 18px 42px rgba(31, 78, 61, 0.16);
+  transform: scale(1.02);
+}
+
+.pe-access-card.featured:hover {
+  transform: scale(1.02) translateY(-4px);
+}
+
+.pe-access-badge {
+  display: inline-block;
+  background: var(--pe-niebla);
+  color: var(--pe-selva);
+  border: 1px solid var(--pe-salvia);
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.pe-access-card.featured .pe-access-badge {
+  background: var(--pe-selva);
+  color: var(--pe-blanco);
+  border-color: var(--pe-selva);
+}
+
+.pe-access-card h3 {
+  font-family: var(--pe-serif);
+  font-size: 1.9rem;
+  color: var(--pe-selva);
+  margin-bottom: 10px;
+}
+
+.pe-access-card p {
+  font-size: 1.02rem;
+  color: var(--pe-gris-texto);
+  margin-bottom: 22px;
+  line-height: 1.55;
+}
+
+.pe-access-btn {
+  align-self: flex-start;
+  background: var(--pe-medio);
+  color: var(--pe-blanco);
+  border: none;
+  padding: 11px 22px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.94rem;
+  cursor: pointer;
+}
+
+.pe-access-card.featured .pe-access-btn {
+  background: var(--pe-selva);
+}
+
+/* Caja de datos de conversión 0.3 */
+.pe-conversion-bar {
+  background: var(--pe-blanco);
+  border: 1px solid var(--pe-borde);
+  border-radius: 14px;
+  padding: 22px 26px;
+}
+
+.pe-conversion-title {
+  font-family: var(--pe-serif);
+  font-size: 1.35rem;
+  color: var(--pe-selva);
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.pe-conversion-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.pe-conv-card {
+  background: var(--pe-niebla);
+  border-left: 4px solid var(--pe-selva);
+  padding: 14px 18px;
+  border-radius: 6px;
+}
+
+.pe-conv-val {
+  font-family: var(--pe-serif);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--pe-selva);
+  display: block;
+}
+
+.pe-conv-label {
+  font-size: 0.88rem;
+  color: var(--pe-gris-texto);
+}
+
+/* ==========================================================================
+   VISOR DE DIAPOSITIVAS (Proporción 16:9 adaptable, controles, índice lateral)
+   ========================================================================== */
+
+.pe-deck-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  position: relative;
+}
+
+.pe-deck-layout.with-sidebar {
+  grid-template-columns: 280px 1fr;
+}
+
+/* Índice lateral desplegable */
+.pe-sidebar {
+  background: var(--pe-blanco);
+  border: 1px solid var(--pe-borde);
+  border-radius: 14px;
+  padding: 18px 14px;
+  max-height: 760px;
+  overflow-y: auto;
+  box-shadow: 0 8px 24px rgba(31, 78, 61, 0.08);
+}
+
+.pe-sidebar-title {
+  font-family: var(--pe-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--pe-selva);
+  padding: 0 8px 12px;
+  border-bottom: 1px solid var(--pe-borde);
+  margin-bottom: 10px;
+}
+
+.pe-index-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.pe-index-item {
+  background: transparent;
+  border: none;
+  text-align: left;
+  padding: 9px 10px;
+  border-radius: 8px;
+  font-family: var(--pe-sans);
+  font-size: 0.86rem;
+  color: var(--pe-texto);
+  cursor: pointer;
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  transition: background 0.15s ease;
+}
+
+.pe-index-item:hover {
+  background: var(--pe-niebla);
+}
+
+.pe-index-item.active {
+  background: var(--pe-selva);
+  color: var(--pe-blanco);
+  font-weight: 700;
+}
+
+.pe-index-num {
+  font-weight: 700;
+  color: var(--pe-medio);
+  flex-shrink: 0;
+}
+
+.pe-index-item.active .pe-index-num {
+  color: var(--pe-salvia);
+}
+
+/* Contenedor principal de la diapositiva */
+.pe-stage-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Barra de progreso y controles superiores del visor */
+.pe-controls-bar {
+  background: var(--pe-blanco);
+  border: 1px solid var(--pe-borde);
+  border-radius: 12px;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.pe-btn-index {
+  background: var(--pe-niebla);
+  color: var(--pe-selva);
+  border: 1px solid var(--pe-borde);
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+
+.pe-btn-index:hover {
+  border-color: var(--pe-selva);
+}
+
+.pe-progress-wrap {
+  flex: 1;
+  min-width: 180px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pe-progress-track {
+  flex: 1;
+  height: 8px;
+  background: var(--pe-niebla);
+  border: 1px solid var(--pe-borde);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.pe-progress-fill {
+  height: 100%;
+  background: var(--pe-selva);
+  width: 0%;
+  transition: width 0.25s ease;
+}
+
+.pe-slide-counter {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--pe-selva);
+  white-space: nowrap;
+}
+
+.pe-nav-arrows {
+  display: flex;
+  gap: 8px;
+}
+
+.pe-arrow-btn {
+  background: var(--pe-medio);
+  color: var(--pe-blanco);
+  border: none;
+  padding: 9px 18px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.92rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.pe-arrow-btn:hover:not(:disabled) {
+  background: var(--pe-selva);
+}
+
+.pe-arrow-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Lienzo 16:9 de la diapositiva */
+.pe-slide-canvas {
+  background: var(--pe-blanco);
+  border: 1px solid var(--pe-borde);
+  border-radius: 16px;
+  min-height: 640px;
+  padding: 40px 46px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 16px 42px rgba(31, 78, 61, 0.09);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Diapositiva tipo Portada / Manifiesto en Verde Selva */
+.pe-slide-canvas.slide-cover {
+  background: var(--pe-selva);
+  color: var(--pe-blanco);
+  border-color: var(--pe-selva);
+}
+
+.pe-slide-header {
+  margin-bottom: 22px;
+}
+
+.pe-slide-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.pe-slide-code {
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pe-medio);
+}
+
+.slide-cover .pe-slide-code {
+  color: var(--pe-salvia);
+}
+
+.pe-priority-badge {
+  background: var(--pe-medio);
+  color: var(--pe-blanco);
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.pe-slide-title {
+  font-family: var(--pe-serif);
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  font-weight: 700;
+  color: var(--pe-selva);
+  line-height: 1.15;
+  margin-bottom: 10px;
+}
+
+.slide-cover .pe-slide-title {
+  color: var(--pe-blanco);
+  font-size: clamp(2.4rem, 4vw, 3.3rem);
+}
+
+.pe-key-message {
+  font-family: var(--pe-serif);
+  font-size: 1.38rem;
+  font-weight: 600;
+  color: var(--pe-selva);
+  background: var(--pe-niebla);
+  border-left: 5px solid var(--pe-selva);
+  padding: 12px 18px;
+  border-radius: 0 8px 8px 0;
+  line-height: 1.35;
+}
+
+.slide-cover .pe-key-message {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--pe-blanco);
+  border-left-color: var(--pe-salvia);
+}
+
+/* Cuerpo de la diapositiva (Mínimo 18px según guía 0.2) */
+.pe-slide-body {
+  flex: 1;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--pe-texto);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  margin: 12px 0 20px;
+}
+
+.slide-cover .pe-slide-body {
+  color: var(--pe-blanco);
+}
+
+/* Pie de fuente */
+.pe-slide-footer {
+  border-top: 1px solid var(--pe-borde);
+  padding-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 0.82rem;
+  color: var(--pe-gris-texto);
+}
+
+.slide-cover .pe-slide-footer {
+  border-top-color: rgba(143, 184, 163, 0.35);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ==========================================================================
+   COMPONENTES VISUALES DENTRO DE LAS DIAPOSITIVAS (Tablas, KPIs, Gráficas)
+   ========================================================================== */
+
+/* Tablas con identidad Word exacta (0.2) */
+.pe-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid var(--pe-borde);
+}
+
+.pe-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 17px;
+  background: var(--pe-blanco);
+  color: var(--pe-texto);
+}
+
+.pe-table th {
+  background-color: var(--pe-selva);
+  color: var(--pe-blanco);
+  font-weight: 700;
+  text-align: left;
+  padding: 12px 15px;
+  border: 1px solid var(--pe-borde);
+}
+
+.pe-table td {
+  padding: 11px 15px;
+  border: 1px solid var(--pe-borde);
+  vertical-align: top;
+}
+
+.pe-table tbody tr td:first-child {
+  background-color: var(--pe-niebla);
+  font-weight: 700;
+  color: var(--pe-texto);
+}
+
+.pe-table tbody tr.pe-total-row td {
+  background-color: var(--pe-niebla);
+  font-weight: 700;
+  color: var(--pe-selva);
+}
+
+.pe-table tbody tr.pe-highlight-row td {
+  background-color: #E2EFE9;
+  font-weight: 700;
+  color: var(--pe-selva);
+}
+
+/* Tarjetas KPI */
+.pe-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.pe-kpi-card {
+  background: var(--pe-niebla);
+  border-left: 5px solid var(--pe-selva);
+  padding: 18px 20px;
+  border-radius: 6px;
+  color: var(--pe-texto);
+}
+
+.slide-cover .pe-kpi-card {
+  background: var(--pe-niebla);
+  color: var(--pe-texto);
+}
+
+.pe-kpi-val {
+  font-family: var(--pe-serif);
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: var(--pe-selva);
+  line-height: 1.1;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.pe-kpi-lbl {
+  font-size: 0.95rem;
+  color: var(--pe-gris-texto);
+  line-height: 1.35;
+}
+
+/* Gráficas de Barras Horizontales y Verticales */
+.pe-chart-box {
+  background: var(--pe-niebla);
+  border: 1px solid var(--pe-borde);
+  border-radius: 12px;
+  padding: 22px 26px;
+}
+
+.pe-chart-title {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--pe-selva);
+  margin-bottom: 16px;
+}
+
+/* Barra apilada 100% */
+.pe-stacked-bar-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--pe-texto);
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pe-stacked-bar {
+  display: flex;
+  height: 54px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--pe-borde);
+}
+
+.pe-stacked-seg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--pe-blanco);
+  transition: filter 0.2s ease;
+  position: relative;
+}
+
+.pe-stacked-seg:hover {
+  filter: brightness(1.08);
+}
+
+/* Barras horizontales */
+.pe-hbar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.pe-hbar-row {
+  display: grid;
+  grid-template-columns: 260px 1fr 110px;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.92rem;
+}
+
+.pe-hbar-label {
+  text-align: right;
+  font-weight: 600;
+  color: var(--pe-texto);
+}
+
+.pe-hbar-track {
+  background: #E4ECE8;
+  height: 28px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.pe-hbar-fill {
+  height: 100%;
+  background: var(--pe-salvia);
+  border-radius: 5px;
+  transition: width 0.6s ease;
+}
+
+.pe-hbar-fill.highlight {
+  background: var(--pe-selva);
+}
+
+.pe-hbar-val {
+  font-weight: 700;
+  color: var(--pe-selva);
+  font-size: 0.92rem;
+}
+
+/* Barras verticales */
+.pe-vbar-chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  height: 230px;
+  padding-top: 28px;
+  border-bottom: 2px solid var(--pe-selva);
+  gap: 12px;
+}
+
+.pe-vbar-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.pe-vbar-num {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--pe-selva);
+  margin-bottom: 6px;
+}
+
+.pe-vbar-rect {
+  width: 100%;
+  max-width: 72px;
+  background: var(--pe-salvia);
+  border-radius: 6px 6px 0 0;
+  transition: height 0.5s ease;
+}
+
+.pe-vbar-rect.highlight {
+  background: var(--pe-selva);
+}
+
+.pe-vbar-year {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--pe-texto);
+}
+
+/* Diagrama de 5 eslabones (Cadena de valor / Proceso) */
+.pe-chain-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+
+.pe-chain-step {
+  background: var(--pe-niebla);
+  border: 2px solid var(--pe-borde);
+  border-radius: 12px;
+  padding: 16px 14px;
+  position: relative;
+}
+
+.pe-chain-step.colombia-here {
+  background: #E1EFE9;
+  border-color: var(--pe-selva);
+  box-shadow: 0 6px 18px rgba(31, 78, 61, 0.14);
+}
+
+.pe-chain-step.price-here {
+  background: #EFEFEF;
+  border-color: #999999;
+}
+
+.pe-chain-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+  background: var(--pe-selva);
+  color: var(--pe-blanco);
+}
+
+.pe-chain-step.price-here .pe-chain-tag {
+  background: #555555;
+}
+
+/* Diagrama de Gantt (Diapositiva 3.6a) */
+.pe-gantt-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-size: 0.84rem;
+}
+
+.pe-gantt-row {
+  display: grid;
+  grid-template-columns: 270px repeat(12, 1fr);
+  align-items: center;
+  gap: 4px;
+}
+
+.pe-gantt-header {
+  font-weight: 700;
+  color: var(--pe-selva);
+  text-align: center;
+  padding-bottom: 4px;
+  border-bottom: 2px solid var(--pe-selva);
+}
+
+.pe-gantt-label {
+  font-weight: 600;
+  text-align: right;
+  padding-right: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pe-gantt-cell {
+  height: 22px;
+  background: #EBF1EE;
+  border-radius: 4px;
+}
+
+.pe-gantt-cell.active {
+  background: var(--pe-salvia);
+}
+
+.pe-gantt-cell.critical {
+  background: var(--pe-selva);
+}
+
+/* Mapa de calor Probabilidad x Impacto (Diapositiva 3.13a) */
+.pe-heatmap-layout {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 22px;
+  align-items: start;
+}
+
+.pe-heatmap-grid {
+  display: grid;
+  grid-template-columns: 90px repeat(3, 1fr);
+  gap: 8px;
+  align-items: stretch;
+}
+
+.pe-hm-cell {
+  min-height: 96px;
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 1px solid var(--pe-borde);
+}
+
+.pe-hm-low {
+  background: #CBE0D5;
+}
+
+.pe-hm-med {
+  background: var(--pe-salvia);
+}
+
+.pe-hm-high {
+  background: var(--pe-selva);
+  color: var(--pe-blanco);
+}
+
+.pe-risk-chip {
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--pe-selva);
+  border: 1px solid var(--pe-selva);
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  transition: transform 0.15s ease;
+}
+
+.pe-risk-chip:hover {
+  transform: scale(1.03);
+  background: var(--pe-blanco);
+}
+
+/* Lista de referencias APA 7 */
+.pe-ref-list {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  max-height: 430px;
+  overflow-y: auto;
+  padding-right: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pe-ref-list ol {
+  padding-left: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pe-ref-list a {
+  color: var(--pe-medio);
+  word-break: break-all;
+}
+
+.pe-ref-list a:hover {
+  color: var(--pe-selva);
+}
+
+.pe-ia-box {
+  margin-top: 14px;
+  background: var(--pe-niebla);
+  border-left: 4px solid var(--pe-selva);
+  padding: 14px 18px;
+  border-radius: 8px;
+  font-size: 0.92rem;
+}
+
+/* Interruptor COP en Tabla 17 */
+.pe-cop-toggle-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.pe-cop-btn {
+  background: var(--pe-niebla);
+  color: var(--pe-selva);
+  border: 1px solid var(--pe-selva);
+  padding: 7px 14px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.pe-cop-btn.active {
+  background: var(--pe-selva);
+  color: var(--pe-blanco);
+}
+
+.hide-cop .col-cop {
+  display: none;
+}
+
+@media (max-width: 980px) {
+  .pe-hub-cards,
+  .pe-conversion-grid,
+  .pe-deck-layout.with-sidebar,
+  .pe-heatmap-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .pe-chain-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pe-hbar-row {
+    grid-template-columns: 1fr;
+  }
+
+  .pe-hbar-label {
+    text-align: left;
+  }
+
+  .pe-slide-canvas {
+    padding: 24px 20px;
+  }
+}

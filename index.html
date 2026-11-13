@@ -7,14 +7,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=5" />
+  <link rel="stylesheet" href="styles.css?v=7" />
+  <link rel="stylesheet" href="plan-estrategico.css?v=7" />
 </head>
 <body>
 
   <!-- Navegación -->
   <header class="navbar" id="navbar">
     <div class="container nav-container">
-      <a href="#inicio" class="brand-logo" aria-label="kayá Inicio">
+      <a href="#inicio" class="brand-logo" aria-label="kayá Inicio" onclick="closeStrategicPlan()">
         <span class="brand-icon" aria-hidden="true">
           <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="1.5"/>
@@ -24,15 +25,63 @@
         </span>
         <span class="brand-name">kayá</span>
       </a>
-      <nav class="nav-links">
-        <a href="#inicio">Inicio</a>
-        <a href="#el-cacay">¿Qué es el Cacay?</a>
-        <a href="#productos">Productos</a>
-        <a href="#club">El Club Kaya</a>
+      <nav class="nav-links" id="store-nav-links">
+        <a href="#inicio" onclick="closeStrategicPlan()">Inicio</a>
+        <a href="#el-cacay" onclick="closeStrategicPlan()">¿Qué es el Cacay?</a>
+        <a href="#productos" onclick="closeStrategicPlan()">Productos</a>
+        <a href="#club" onclick="closeStrategicPlan()">El Club Kaya</a>
       </nav>
-      <a href="#productos" class="btn btn-nav">Explorar Línea</a>
+
+      <!-- Botón Plan Estratégico con menú desplegable de 3 fases -->
+      <div class="plan-dropdown" id="plan-dropdown">
+        <button
+          type="button"
+          class="btn btn-nav plan-trigger"
+          id="plan-trigger-btn"
+          aria-expanded="false"
+          onclick="togglePlanMenu(event)"
+        >
+          <span>Plan Estratégico</span>
+          <svg class="plan-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+        </button>
+
+        <div class="plan-menu" id="plan-menu" role="menu" aria-label="Fases del Plan Estratégico">
+          <button type="button" class="plan-phase-btn" role="menuitem" onclick="openStrategicHub()">
+            <span class="phase-badge">★</span>
+            <span class="phase-btn-info">
+              <strong>Inicio del Plan</strong>
+              <small>Resumen y 3 tarjetas de acceso</small>
+            </span>
+          </button>
+          <button type="button" class="plan-phase-btn" role="menuitem" onclick="openStrategicPhase(1, 0)">
+            <span class="phase-badge">01</span>
+            <span class="phase-btn-info">
+              <strong>Fase 1 · Diagnóstico</strong>
+              <small>11 diapositivas · Producto y cadena</small>
+            </span>
+          </button>
+          <button type="button" class="plan-phase-btn" role="menuitem" onclick="openStrategicPhase(2, 0)">
+            <span class="phase-badge">02</span>
+            <span class="phase-btn-info">
+              <strong>Fase 2 · Estrategia</strong>
+              <small>11 diapositivas · DOFA, TLC y mercados</small>
+            </span>
+          </button>
+          <button type="button" class="plan-phase-btn" role="menuitem" onclick="openStrategicPhase(3, 0)">
+            <span class="phase-badge">03</span>
+            <span class="phase-btn-info">
+              <strong>Fase 3 · Valor, costos y riesgos</strong>
+              <small>18 diapositivas · Fase protagonista</small>
+            </span>
+          </button>
+        </div>
+      </div>
     </div>
   </header>
+
+  <main id="store-main-view">
 
   <!-- Indicador lateral de páginas -->
   <aside class="page-dots" aria-label="Navegación por secciones">
@@ -152,21 +201,21 @@
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3h6v4l3 5v8a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-8l3-5V3z"/></svg>
                   Presentación y Envase
                 </div>
-                <p>Frasco de vidrio ámbar de 30 ml con gotero.</p>
+                <p>Frasco de vidrio ámbar de 30 ml con gotero de precisión.</p>
               </div>
               <div class="extra-item">
                 <div class="extra-label">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
-                  Aplicación
+                  Aplicación Directa
                 </div>
-                <p>Aplicación directa en el cuidado facial de piel madura.</p>
+                <p>Aplica de 3 a 4 gotas directamente sobre la piel limpia del rostro y el cuello (día y noche), masajeando suavemente hasta su absorción.</p>
               </div>
               <div class="extra-item">
                 <div class="extra-label">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                  Beneficios
+                  Beneficios en tu Piel
                 </div>
-                <p>Absorción rápida y efecto seco, hidratación profunda y retinol natural (Tacay, s. f.).</p>
+                <p>Mantiene tu rostro más rejuvenecido, firme y luminoso: atenúa líneas de expresión con retinol natural y brinda hidratación profunda de rápida absorción y toque seco, sin dejar sensación grasa.</p>
               </div>
               <button class="btn-modal-link" type="button" onclick="openProductModal('serum')">
                 Ver en ficha ampliada →
@@ -200,21 +249,21 @@
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3h6v4l3 5v8a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-8l3-5V3z"/></svg>
                   Presentación y Envase
                 </div>
-                <p>Frasco plástico biodegradable de 250 ml.</p>
+                <p>Frasco plástico biodegradable de 250 ml con dispensador.</p>
               </div>
               <div class="extra-item">
                 <div class="extra-label">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
-                  Aplicación
+                  Aplicación Directa
                 </div>
-                <p>Aplicación directa sobre el cuero cabelludo para mejorar la hidratación y la recuperación capilar.</p>
+                <p>Aplica directamente sobre el cuero cabelludo y el cabello húmedo, masajeando con la yema de los dedos durante 2 minutos antes de enjuagar.</p>
               </div>
               <div class="extra-item">
                 <div class="extra-label">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                  Beneficios
+                  Beneficios en tu Cabello
                 </div>
-                <p>Aporta ácidos grasos (72,7 % de ácido linoleico en un análisis de lote) a la formulación (Mi Cosmética Casera, s. f.).</p>
+                <p>Recupera el brillo, la suavidad y la fuerza de tu cabello desde la raíz: hidrata el cuero cabelludo, reduce el frizz y repara las puntas gracias a su alto aporte de ácidos grasos esenciales (72,7 % de ácido linoleico).</p>
               </div>
               <button class="btn-modal-link" type="button" onclick="openProductModal('shampoo')">
                 Ver en ficha ampliada →
@@ -253,16 +302,16 @@
               <div class="extra-item">
                 <div class="extra-label">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
-                  Aplicación
+                  Aplicación Directa
                 </div>
-                <p>Exfoliante físico corporal, en un esquema de cosmética circular.</p>
+                <p>Aplica directamente sobre la piel húmeda del cuerpo durante la ducha con suaves masajes circulares (en brazos, piernas, codos y rodillas) y retira con agua.</p>
               </div>
               <div class="extra-item">
                 <div class="extra-label">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                  Beneficios
+                  Beneficios en tu Cuerpo
                 </div>
-                <p>Usa un subproducto con 32,56 % de proteína y 527 mg de calcio por 100 g (Tacay, s. f.), lo que reduce el desperdicio.</p>
+                <p>Deja tu piel ultra suave, renovada y luminosa al instante: remueve impurezas y células muertas mientras nutre tu piel con proteína natural (32,56 %) y calcio (527 mg/100 g), cuidando el planeta sin desperdicios.</p>
               </div>
               <button class="btn-modal-link" type="button" onclick="openProductModal('exfoliant')">
                 Ver en ficha ampliada →
@@ -306,6 +355,146 @@
         <button type="submit" class="club-submit-btn">SUSCRIBIRME</button>
         <p class="club-feedback" id="club-feedback" hidden></p>
       </form>
+    </div>
+  </section>
+  </main>
+
+  <!-- Vista separada: Módulo «Plan estratégico» (Identidad Word #1F4E3D + Visor de Diapositivas) -->
+  <section class="strategic-view" id="strategic-view" hidden>
+    <div class="pe-wrapper">
+
+      <!-- Barra superior de navegación del módulo -->
+      <div class="pe-topbar">
+        <div class="pe-topbar-left">
+          <button type="button" class="pe-btn-store" onclick="closeStrategicPlan()">
+            ← Volver a la Tienda kayá
+          </button>
+          <button type="button" class="pe-btn-home" onclick="openStrategicHub()">
+            Volver al plan estratégico
+          </button>
+        </div>
+        <div class="pe-phase-switcher">
+          <button type="button" class="pe-phase-pill" data-phase="1" onclick="openStrategicPhase(1, 0)">
+            Fase 1 · Diagnóstico
+          </button>
+          <button type="button" class="pe-phase-pill" data-phase="2" onclick="openStrategicPhase(2, 0)">
+            Fase 2 · Estrategia
+          </button>
+          <button type="button" class="pe-phase-pill" data-phase="3" onclick="openStrategicPhase(3, 0)">
+            Fase 3 · Valor, costos y riesgos ★
+          </button>
+        </div>
+      </div>
+
+      <!-- PORTADA DEL MÓDULO (3 Tarjetas de acceso + Datos de conversión 0.3) -->
+      <div class="pe-hub" id="pe-hub-view">
+        <div class="pe-hub-banner">
+          <div class="pe-hub-eyebrow">GUION DE CONTENIDO · MÓDULO ACADÉMICO Y CORPORATIVO</div>
+          <h1 class="pe-hub-title">Módulo «Plan estratégico»</h1>
+          <p class="pe-hub-subtitle">
+            Fase 1 · Fase 2 · Fase 3 — Aceite de cacay colombiano y Cacay Amazon Origin Sérum
+          </p>
+          <div class="pe-hub-meta">
+            <span><strong>Taller:</strong> «Plan Estratégico de Inserción Internacional de Colombia» · Entorno Económico Internacional · <strong>Docente:</strong> Lindy Neth Perea Mosquera</span>
+            <span><strong>Integrantes:</strong> Juan Manuel Hernández, Angie Ochoa y Juan José Gómez · <strong>Universidad Libre, seccional Pereira</strong> · Noviembre de 2026</span>
+          </div>
+        </div>
+
+        <div class="pe-hub-cards">
+          <!-- Tarjeta Fase 1 -->
+          <div class="pe-access-card" onclick="openStrategicPhase(1, 0)">
+            <div>
+              <span class="pe-access-badge">11 diapositivas (1.1 a 1.11)</span>
+              <h3>Fase 1 · Diagnóstico</h3>
+              <p>
+                Por qué Colombia necesita diversificar sus exportaciones, el potencial de la bioeconomía, el perfil bioactivo del aceite de cacay y el análisis de su cadena de valor global.
+              </p>
+            </div>
+            <button type="button" class="pe-access-btn">Abrir presentación Fase 1 →</button>
+          </div>
+
+          <!-- Tarjeta Fase 2 -->
+          <div class="pe-access-card" onclick="openStrategicPhase(2, 0)">
+            <div>
+              <span class="pe-access-badge">11 diapositivas (2.1 a 2.11)</span>
+              <h3>Fase 2 · Estrategia</h3>
+              <p>
+                Marco teórico de comercio internacional, Matriz DOFA y cruces estratégicos, acuerdos comerciales (UE, Reino Unido, EE. UU.), selección de mercados (Alemania y EE. UU.), competencia, regulación y portafolio.
+              </p>
+            </div>
+            <button type="button" class="pe-access-btn">Abrir presentación Fase 2 →</button>
+          </div>
+
+          <!-- Tarjeta Fase 3 (Destacada según guía 0.1) -->
+          <div class="pe-access-card featured" onclick="openStrategicPhase(3, 0)">
+            <div>
+              <span class="pe-access-badge">★ FASE PROTAGONISTA · 18 diapositivas (3.1 a 3.16)</span>
+              <h3>Fase 3 · Valor, costos y riesgos</h3>
+              <p>
+                Escalera de valor (USD 1,30 → USD 14,00), transformación en 5 etapas, historia de marca, cronograma de 12 meses (Gantt + Tabla 16), costo por unidad (USD 6,73; margen 51,9 %), formación del precio (35,90 €) y matriz de riesgos (Tabla 19).
+              </p>
+            </div>
+            <button type="button" class="pe-access-btn">Abrir presentación Fase 3 →</button>
+          </div>
+        </div>
+
+        <!-- Datos de conversión 0.3 -->
+        <div class="pe-conversion-bar">
+          <div class="pe-conversion-title">Tasas oficiales de conversión utilizadas en el Plan Estratégico</div>
+          <div class="pe-conversion-grid">
+            <div class="pe-conv-card">
+              <span class="pe-conv-val">$3.297,07</span>
+              <span class="pe-conv-label">TRM por dólar, 12 de noviembre de 2026 (Dólar Hoy, 2026)</span>
+            </div>
+            <div class="pe-conv-card">
+              <span class="pe-conv-val">USD 1,1267</span>
+              <span class="pe-conv-label">por euro, 4 de noviembre de 2026 (Interactive Crypto, 2026)</span>
+            </div>
+            <div class="pe-conv-card">
+              <span class="pe-conv-val">≈ USD 1,345</span>
+              <span class="pe-conv-label">por libra, 10 de noviembre de 2026 (FXStreet, 2026)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VISOR DE DIAPOSITIVAS DENTRO DE CADA FASE -->
+      <div id="pe-deck-view" hidden>
+        <div class="pe-deck-layout with-sidebar" id="pe-deck-layout">
+          <!-- Índice lateral desplegable -->
+          <aside class="pe-sidebar" id="pe-sidebar">
+            <div class="pe-sidebar-title" id="pe-sidebar-title">Índice de diapositivas</div>
+            <div class="pe-index-list" id="pe-index-list"></div>
+          </aside>
+
+          <!-- Escenario de la diapositiva -->
+          <div class="pe-stage-wrap">
+            <div class="pe-controls-bar">
+              <button type="button" class="pe-btn-index" onclick="toggleSlideSidebar()">
+                ☰ Mostrar / Ocultar Índice
+              </button>
+              <div class="pe-progress-wrap">
+                <div class="pe-progress-track">
+                  <div class="pe-progress-fill" id="pe-progress-fill"></div>
+                </div>
+                <span class="pe-slide-counter" id="pe-slide-counter">Diapositiva 1 de 11</span>
+              </div>
+              <div class="pe-nav-arrows">
+                <button type="button" class="pe-arrow-btn" id="pe-prev-btn" onclick="prevSlide()">
+                  ← Anterior
+                </button>
+                <button type="button" class="pe-arrow-btn" id="pe-next-btn" onclick="nextSlide()">
+                  Siguiente →
+                </button>
+              </div>
+            </div>
+
+            <!-- Lienzo 16:9 donde se inyecta cada diapositiva -->
+            <div class="pe-slide-canvas" id="pe-slide-canvas"></div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -368,6 +557,7 @@
     </div>
   </footer>
 
-  <script src="script.js?v=5"></script>
+  <script src="script.js?v=7"></script>
+  <script src="plan-estrategico.js?v=7"></script>
 </body>
 </html>

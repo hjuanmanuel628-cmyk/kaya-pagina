@@ -4,18 +4,18 @@ const PRODUCT_DATA = {
     title: "Cacay Amazon Origin Sérum",
     description: "Sérum facial antienvejecimiento de producto terminado, 100 % natural.",
     image: "assets/images/serum.jpg",
-    packaging: "Frasco de vidrio ámbar de 30 ml con gotero.",
-    application: "Aplicación directa en el cuidado facial de piel madura.",
-    benefits: "Absorción rápida y efecto seco, hidratación profunda y retinol natural (Tacay, s. f.)."
+    packaging: "Frasco de vidrio ámbar de 30 ml con gotero de precisión.",
+    application: "Aplica de 3 a 4 gotas directamente sobre la piel limpia del rostro y el cuello (día y noche), masajeando suavemente hasta su absorción.",
+    benefits: "Mantiene tu rostro más rejuvenecido, firme y luminoso: atenúa líneas de expresión con retinol natural y brinda hidratación profunda de rápida absorción y toque seco, sin dejar sensación grasa."
   },
   shampoo: {
     tag: "Cuidado Capilar",
     title: "Cacay Active Shampoo",
     description: "Shampoo capilar con aceite de cacay como componente principal y formulación 100 % natural.",
     image: "assets/images/shampoo.jpg",
-    packaging: "Frasco plástico biodegradable de 250 ml.",
-    application: "Aplicación directa sobre el cuero cabelludo para mejorar la hidratación y la recuperación capilar.",
-    benefits: "Aporta ácidos grasos (72,7 % de ácido linoleico en un análisis de lote) a la formulación (Mi Cosmética Casera, s. f.)."
+    packaging: "Frasco plástico biodegradable de 250 ml con dispensador.",
+    application: "Aplica directamente sobre el cuero cabelludo y el cabello húmedo, masajeando con la yema de los dedos durante 2 minutos antes de enjuagar.",
+    benefits: "Recupera el brillo, la suavidad y la fuerza de tu cabello desde la raíz: hidrata el cuero cabelludo, reduce el frizz y repara las puntas gracias a su alto aporte de ácidos grasos esenciales (72,7 % de ácido linoleico)."
   },
   exfoliant: {
     tag: "Cosmética Circular",
@@ -23,8 +23,8 @@ const PRODUCT_DATA = {
     description: "Crema exfoliante que aprovecha la torta residual del prensado de la nuez.",
     image: "assets/images/exfoliant.jpg",
     packaging: "Envase ecológico de 200 ml.",
-    application: "Exfoliante físico corporal, en un esquema de cosmética circular.",
-    benefits: "Usa un subproducto con 32,56 % de proteína y 527 mg de calcio por 100 g (Tacay, s. f.), lo que reduce el desperdicio."
+    application: "Aplica directamente sobre la piel húmeda del cuerpo durante la ducha con suaves masajes circulares (en brazos, piernas, codos y rodillas) y retira con agua.",
+    benefits: "Deja tu piel ultra suave, renovada y luminosa al instante: remueve impurezas y células muertas mientras nutre tu piel con proteína natural (32,56 %) y calcio (527 mg/100 g), cuidando el planeta sin desperdicios."
   }
 };
 
@@ -210,6 +210,36 @@ const sectionObserver = new IntersectionObserver(
 pageSections.forEach((section) => {
   sectionObserver.observe(section);
 });
+
+// Control del menú desplegable "Plan Estratégico" y regreso a la tienda
+function togglePlanMenu(event) {
+  event.stopPropagation();
+  const dropdown = document.getElementById("plan-dropdown");
+  const triggerBtn = document.getElementById("plan-trigger-btn");
+  const isOpen = dropdown.classList.toggle("open");
+  triggerBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+}
+
+function closeStrategicPlan() {
+  const storeMainView = document.getElementById("store-main-view");
+  const strategicView = document.getElementById("strategic-view");
+
+  if (!strategicView.hasAttribute("hidden")) {
+    strategicView.setAttribute("hidden", "");
+    storeMainView.removeAttribute("hidden");
+    document.querySelector(".page-dots")?.removeAttribute("hidden");
+    setTimeout(updateScrollTransitions, 50);
+  }
+}
+
+document.addEventListener("click", (event) => {
+  const dropdown = document.getElementById("plan-dropdown");
+  if (dropdown && !dropdown.contains(event.target)) {
+    dropdown.classList.remove("open");
+    document.getElementById("plan-trigger-btn")?.setAttribute("aria-expanded", "false");
+  }
+});
+
 
 
 
