@@ -847,7 +847,7 @@ const STRATEGIC_PHASES = {
           <div class="pe-table-wrap">
             <table class="pe-table">
               <thead>
-                <tr><th>riterio</th><th>Hoy (según nuestro diagnóstico)</th><th>Con nuestra propuesta</th></tr>
+                <tr><th>Criterio</th><th>Hoy (según nuestro diagnóstico)</th><th>Con nuestra propuesta</th></tr>
               </thead>
               <tbody>
                 <tr>
